@@ -4,6 +4,10 @@ modules = ["python-3.11"]
 [nix]
 channel = "stable-22_11"
 
+[env]
+PYTHONPATH = "${REPL_HOME}/${REPL_SLUG}:${PYTHONPATH}"
+PYTHONHTTPSVERIFY = "0"
+
 [gitHubImport]
 requiredFiles = [".replit", "replit.nix", "main.py", "requirements.txt"]
 
@@ -17,3 +21,4 @@ start = "pylsp"
 
 [deployment]
 run = ["sh", "-c", "python main.py"]
+deploymentTarget = "cloudrun"
