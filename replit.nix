@@ -4,8 +4,8 @@
     pkgs.replitPackages.prybar-python311
     pkgs.replitPackages.stderred
 
-    # OCR dependencies
-    pkgs.tesseract4
+    # OCR dependencies - Use tesseract5 for newer version
+    pkgs.tesseract5
     pkgs.ghostscript
     pkgs.unpaper
     pkgs.qpdf
@@ -19,15 +19,16 @@
     pkgs.zlib
     pkgs.freetype
     pkgs.fontconfig
+    pkgs.leptonica
     
-    # Additional Tesseract language data
-    pkgs.tesseract4.languages.eng
-    pkgs.tesseract4.languages.spa
-    pkgs.tesseract4.languages.fra
-    pkgs.tesseract4.languages.deu
-    pkgs.tesseract4.languages.ita
-    pkgs.tesseract4.languages.chi_sim
-    pkgs.tesseract4.languages.osd
+    # Additional Tesseract language data for version 5
+    pkgs.tesseract5.languages.eng
+    pkgs.tesseract5.languages.spa  
+    pkgs.tesseract5.languages.fra
+    pkgs.tesseract5.languages.deu
+    pkgs.tesseract5.languages.ita
+    pkgs.tesseract5.languages.chi_sim
+    pkgs.tesseract5.languages.osd
   ];
   
   env = {
@@ -38,7 +39,9 @@
       pkgs.zlib
       pkgs.freetype
       pkgs.fontconfig
+      pkgs.leptonica
     ];
-    TESSDATA_PREFIX = "${pkgs.tesseract4}/share/tessdata";
+    TESSDATA_PREFIX = "${pkgs.tesseract5}/share/tessdata";
+    PATH = "${pkgs.tesseract5}/bin:${pkgs.ghostscript}/bin:${pkgs.qpdf}/bin:$PATH";
   };
 }
