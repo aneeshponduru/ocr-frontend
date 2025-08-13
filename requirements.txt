@@ -1,0 +1,11 @@
+Flask==2.3.3
+Werkzeug==2.3.7
+ocrmypdf==15.4.4
+Pillow==10.0.1
+pikepdf==8.5.2
+reportlab==4.0.4
+img2pdf==0.5.1
+pdfminer.six==20221105
+coloredlogs==15.0.1
+tqdm==4.66.1
+leptonica==1.83.1
